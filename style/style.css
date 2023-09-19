@@ -12,5 +12,9 @@
 
 select {
 	--bs-form-select-bg-img: none!important;
-    padding: 5px 15px!important;
+    padding: 5px 20px!important;
+}
+
+#playerTable td{
+    line-height: 36px;
 }

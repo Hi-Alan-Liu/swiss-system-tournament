@@ -40,7 +40,7 @@
             <hr >
             <div class="input-group mb-3">
               <button class="btn btn-outline-secondary" type="button" onclick="addPlayer(-1)">人數 -</button>
-              <input type="number" min="1" class="form-control" value="1" id="playerCount">
+              <input type="number" min="1" max="50" class="form-control" value="1" id="playerCount">
               <button class="btn btn-outline-secondary" type="button" onclick="addPlayer(1)">人數 +</button>
             </div>
             <h4>訓練家名單</h4>
@@ -56,7 +56,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
+                  <td scope="row">1</td>
                   <td><input type="email" class="form-control" id="nickname-1"></td>
                   <td>            
                     <select id="victory-1" class="form-select">

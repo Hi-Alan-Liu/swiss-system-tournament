@@ -1,18 +1,29 @@
 let playerCount = 1;
+let playerList = [];
 let rount = 3;
+var playerCountInput = document.getElementById("playerCount");
+
+playerCountInput.addEventListener("change", function () {
+    var count = parseInt(this.value);
+    if (count > 0 && count <= 50) {
+        playerCount = count;
+    } else {
+        playerCount = 1;
+        this.vale = 1;
+    }
+    updatePlayerTable();
+});
 
 /*
  * 控制使用者數量
  * @param {*} num 
  */
 function addPlayer(num) {
-    var input = document.getElementById("playerCount");
     if (playerCount + num >= 1) {
         playerCount += num;
-        input.value = playerCount;
-        updatePlayerTable()
+        playerCountInput.value = playerCount;
+        updatePlayerTable();
     }
-    // TODO UpdateList
 }
 
 /*
@@ -27,7 +38,7 @@ function updatePlayerTable() {
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
-            var index = i + 1
+            var index = i + 1;
             cell1.innerHTML = playerTable.rows.length - 1;
             cell2.innerHTML = `<input type="email" class="form-control" id="nickname-${index}">`;
             cell3.innerHTML = addSelectButton("victory", index);
@@ -46,9 +57,13 @@ function savePlayerTable() {
         var nickname = document.getElementById(`nickname-${i}`).value;
         var victoryCount = document.getElementById(`victory-${i}`).value;
         var defeatCount = document.getElementById(`defeat-${i}`).value;
-        console.log(nickname);
-        console.log(victoryCount);
-        console.log(defeatCount);
+
+        playerList.push({
+            nickname: nickname,
+            victoryCount: victoryCount,
+            defeatCount: defeatCount,
+            orderby: i
+        })
     }
 }
 
@@ -56,10 +71,10 @@ function savePlayerTable() {
  * 新增下拉選單場次數
  */
 function addSelectButton(name, num) {
-    var html = `<select id="${name}-${num}" class="form-select"><option selected value="0">0</option>`
+    var html = `<select id="${name}-${num}" class="form-select"><option selected value="0">0</option>`;
     for (var i = 0; i < rount; i++) {
-        html += `<option value="${i + 1}">${i + 1}</option>`
+        html += `<option value="${i + 1}">${i + 1}</option>`;
     }
-    html += '</select>'
+    html += '</select>';
     return html
 }
