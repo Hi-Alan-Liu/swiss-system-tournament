@@ -17,15 +17,41 @@
       <span class="sr-only">　載入中 ...</span>
     </div> -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">瑞士制模擬器</a>
-      </div>
-    </nav>
+    <div class="wrapper">
+      <div class="content">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container">
+            <a class="navbar-brand" href="#">瑞士制模擬器</a>
+          </div>
+        </nav>
 
-    <div class="container mt-4">
-      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ListModal">名單設定</button>
+        <div class="container mt-4">
+          <div class="">
+            <button type="button" class="btn btn-secondary mx-3" data-bs-toggle="modal" data-bs-target="#ListModal">名單設定</button>
+            <button type="button" class="btn btn-secondary " onclick="randomBattleList()">重整對戰表</button>
+          </div>
+
+          <table class="table mt-4" id="battleTable">
+            <thead>
+              <tr>
+                <th scope="col">桌號</th>
+                <th scope="col">暱稱</th>
+                <th scope="col">勝</th>
+                <th scope="col">vs</th>
+                <th scope="col">暱稱</th>
+                <th scope="col">勝</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+
+    <footer>
+      <p class="text-center">Copyright © 2023 All rights reserved. And Design by <a href="https://linktr.ee/hialanliu" target="_blank"> Alan Liu</a></p>
+    </footer>
 
     <!-- Modal -->
     <div class="modal fade" id="ListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ListModalLabel" aria-hidden="true">
@@ -51,27 +77,20 @@
                   <th scope="col">#</th>
                   <th scope="col">暱稱</th>
                   <th scope="col">勝</th>
-                  <th scope="col">敗</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td scope="row">1</td>
                   <td><input type="email" class="form-control" id="nickname-1"></td>
-                  <td>            
+                  <td>
                     <select id="victory-1" class="form-select">
                       <option selected value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
-                    </select>
-                  </td>
-                  <td>            
-                    <select id="defeat-1" class="form-select">
-                      <option selected value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
                   </td>
                 </tr>
@@ -80,7 +99,7 @@
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-            <button type="button" class="btn btn-secondary" onclick="savePlayerTable()">儲存</button>
+            <button type="button" class="btn btn-secondary" onclick="savePlayerTable()">儲存並產生對戰表</button>
           </div>
         </div>
       </div>
